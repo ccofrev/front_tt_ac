@@ -211,6 +211,10 @@ const customSpanishMessages = {
             empty: 'Sin %{name} aún.',
             invite: '¿Quieres añadir uno? Presiona el botón inferior',
         },
+	sort: {
+                ASC: 'Ascendente',
+                DESC: 'Descendente',
+            },
         
     }
 };
