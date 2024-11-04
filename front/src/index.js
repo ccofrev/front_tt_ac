@@ -3,17 +3,11 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import GeneradorQR from './generadorQR';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <App />
-
-    <div>
-      <h1 style={{ textAlign: 'center', marginTop: '20px' }}>Generador de Códigos QR para Acceso Temporal</h1>
-      <GeneradorQR />
-    </div>
   </React.StrictMode>
 );
 

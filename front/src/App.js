@@ -16,26 +16,45 @@ import { DispositivoList, DispositivoEdit, DispositivoCreate } from './dispositi
 import { MetodoAccesoList, MetodoAccesoEdit, MetodoAccesoCreate } from './metodosAcceso';
 import { AccesoList, AccesoEdit, AccesoCreate } from './accesos';
 import { RegistroAccesoList, RegistroAccesoEdit, RegistroAccesoCreate } from './registrosAcceso';
+
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import GeneradorQR from './generadorQR';
+
 import { apiUrl } from './config';
 
 const dataProvider = restProvider({apiUrl});
 const i18nProvider = polyglotI18nProvider(() => customSpanishMessages, 'es');
 
 const App = () => (
-    <Admin dataProvider={dataProvider} i18nProvider={i18nProvider}>
-        <Resource name="personas" list={PersonaList} edit={PersonaEdit} create={PersonaCreate} />
-        <Resource name="residencias" list={ResidenciaList} edit={ResidenciaEdit} create={ResidenciaCreate} />
-        <Resource name="residentes" list={ResidenteList} edit={ResidenteEdit} create={ResidenteCreate} />
-        <Resource name="residentes_temporales" list={ResidentesTemporalesList} edit={ResidentesTemporalesEdit} create={ResidentesTemporalesCreate} />
-        <Resource name="usuarios" list={UsuarioList} edit={UsuarioEdit} create={UsuarioCreate} />
-        <Resource name="visitantes" list={VisitanteList} edit={VisitanteEdit} create={VisitanteCreate} />
-        <Resource name="trabajadores" list={TrabajadorList} edit={TrabajadorEdit} create={TrabajadorCreate} />
-        <Resource name="vehiculos" list={VehiculoList} edit={VehiculoEdit} create={VehiculoCreate} />
-        <Resource name="dispositivos" list={DispositivoList} edit={DispositivoEdit} create={DispositivoCreate} />
-        <Resource name="metodos_acceso" list={MetodoAccesoList} edit={MetodoAccesoEdit} create={MetodoAccesoCreate} />
-        <Resource name="accesos" list={AccesoList} edit={AccesoEdit} create={AccesoCreate} />
-        <Resource name="registros_acceso" list={RegistroAccesoList} edit={RegistroAccesoEdit} create={RegistroAccesoCreate} />
-    </Admin>
+    <BrowserRouter>
+            <Routes>
+                {/* Ruta independiente para el nuevo componente */}
+                <Route path="/QR" element={<GeneradorQR />} />
+
+                {/* Ruta principal de Admin */}
+                <Route
+                    path="/*"
+                    element={
+                        <Admin dataProvider={dataProvider} i18nProvider={i18nProvider}>
+                            <Resource name="personas" list={PersonaList} edit={PersonaEdit} create={PersonaCreate} />
+                            <Resource name="residencias" list={ResidenciaList} edit={ResidenciaEdit} create={ResidenciaCreate} />
+                            <Resource name="residentes" list={ResidenteList} edit={ResidenteEdit} create={ResidenteCreate} />
+                            <Resource name="residentes_temporales" list={ResidentesTemporalesList} edit={ResidentesTemporalesEdit} create={ResidentesTemporalesCreate} />
+                            <Resource name="usuarios" list={UsuarioList} edit={UsuarioEdit} create={UsuarioCreate} />
+                            <Resource name="visitantes" list={VisitanteList} edit={VisitanteEdit} create={VisitanteCreate} />
+                            <Resource name="trabajadores" list={TrabajadorList} edit={TrabajadorEdit} create={TrabajadorCreate} />
+                            <Resource name="vehiculos" list={VehiculoList} edit={VehiculoEdit} create={VehiculoCreate} />
+                            <Resource name="dispositivos" list={DispositivoList} edit={DispositivoEdit} create={DispositivoCreate} />
+                            <Resource name="metodos_acceso" list={MetodoAccesoList} edit={MetodoAccesoEdit} create={MetodoAccesoCreate} />
+                            <Resource name="accesos" list={AccesoList} edit={AccesoEdit} create={AccesoCreate} />
+                            <Resource name="registros_acceso" list={RegistroAccesoList} edit={RegistroAccesoEdit} create={RegistroAccesoCreate} />
+                        </Admin>
+                    }
+                />
+            </Routes>
+        </BrowserRouter>
+
+    
 );
 
 export default App;
