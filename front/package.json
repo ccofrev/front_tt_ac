@@ -7,6 +7,7 @@
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "cors": "^2.8.5",
+    "qrcode.react": "^4.1.0",
     "ra-data-json-server": "^5.0.4",
     "ra-data-simple-rest": "^5.0.4",
     "ra-i18n-polyglot": "^5.0.4",

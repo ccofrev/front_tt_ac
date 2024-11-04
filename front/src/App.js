@@ -16,8 +16,9 @@ import { DispositivoList, DispositivoEdit, DispositivoCreate } from './dispositi
 import { MetodoAccesoList, MetodoAccesoEdit, MetodoAccesoCreate } from './metodosAcceso';
 import { AccesoList, AccesoEdit, AccesoCreate } from './accesos';
 import { RegistroAccesoList, RegistroAccesoEdit, RegistroAccesoCreate } from './registrosAcceso';
+import { apiUrl } from './config';
 
-const dataProvider = restProvider('http://192.168.0.248:5000/api');
+const dataProvider = restProvider({apiUrl});
 const i18nProvider = polyglotI18nProvider(() => customSpanishMessages, 'es');
 
 const App = () => (
